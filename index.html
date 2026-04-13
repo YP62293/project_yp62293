@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yaroslav Pinieha 62293 — Frontend Developer</title>
+
+<link rel="stylesheet" href="red.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="header">
+
+<div class="header-text">
+<div class="header-tag">Portfolio — CV 2026</div>
+
+<h1 class="header-name">
+Yaroslav <br>
+<span>Pinieha 62293</span>
+</h1>
+
+<p class="header-role">Junior Frontend Developer</p>
+</div>
+
+<div class="header-photo">
+<img src="zdjecie.jpg" class="header-decor" alt="Yaroslav Pinieha 62293">
+</div>
+
+</header>
+
+<button id="themeBtn" class="change-color">Zmień motyw</button>
+<button id="toggleProjects" class="hide-project">Ukryj / pokaż projekty</button>
+
+<div class="contact-bar">
+<a href="mailto:ypinieh1@stu.vistula.edu.pl" class="contact-pill">ypinieh1@stu.vistula.edu.pl</a>
+<a href="tel:+48123456789" class="contact-pill">+48 123 456 789</a>
+<a href="https://github.com/yp62293" class="contact-pill">github.com/yp62293</a>
+<a href="https://www.linkedin.com/in/yaroslav-pinieha-808a593b2/" class="contact-pill">LinkedIn</a>
+<span class="contact-pill">Warszawa, PL</span>
+</div>
+
+<div class="grid">
+
+<main>
+
+<section class="section">
+<h2>O mnie</h2>
+<p>
+Student informatyki oraz początkujący frontend developer zainteresowany
+tworzeniem stron internetowych i pisaniem skryptów JavaScript
+usprawniających działanie witryn. W czasie wolnym rozwijam własne projekty
+i uczę się nowych technologii webowych.
+</p>
+</section>
+
+<section class="section">
+<h2>Doświadczenie</h2>
+
+<div class="exp-item">
+<h3>Freelancer — Projekty webowe</h3>
+<p class="exp-date">2023 — obecnie</p>
+<p>
+Tworzenie stron internetowych dla małych firm i osób prywatnych.
+Implementacja skryptów JavaScript: formularze kontaktowe,
+walidacja danych oraz dynamiczne elementy strony.
+</p>
+</div>
+
+<div class="exp-item">
+<h3>Projekty własne</h3>
+<p class="exp-date">2022 — 2023</p>
+<p>
+Projekty studenckie i landing page'e. Kalkulator,
+galeria zdjęć z dynamicznym filtrowaniem oraz
+proste aplikacje webowe w czystym JavaScript.
+</p>
+</div>
+
+</section>
+
+<section class="section">
+<h2>Projekty</h2>
+
+<ul class="projects">
+<li>Strona wizytówka dla lokalnego przedsiębiorcy</li>
+<li>Kalkulator w JavaScript</li>
+<li>Galeria zdjęć z dynamicznym filtrowaniem</li>
+</ul>
+
+</section>
+
+<section class="section">
+<h2>Kontakt</h2>
+
+<form id="contactForm" novalidate>
+
+<input type="text" id="firstName" placeholder="Imię">
+<div class="error" id="firstNameError"></div>
+
+<input type="text" id="lastName" placeholder="Nazwisko">
+<div class="error" id="lastNameError"></div>
+
+<input type="email" id="email" placeholder="E-mail">
+<div class="error" id="emailError"></div>
+
+<textarea id="message" placeholder="Wiadomość"></textarea>
+<div class="error" id="messageError"></div>
+
+<button type="submit">Wyślij</button>
+
+</form>
+</section>
+
+</main>
+
+<aside class="sidebar">
+
+<section class="section">
+<h2>Umiejętności</h2>
+
+<ul class="skills">
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript</li>
+<li>DOM Manipulation</li>
+<li>Git & GitHub</li>
+<li>SQL (podstawy)</li>
+</ul>
+
+</section>
+
+<section class="section">
+<h2>Edukacja</h2>
+
+<div class="edu-item">
+<p class="edu-title">Informatyka</p>
+<p>Studia licencjackie</p>
+<p class="edu-year">2022 — obecnie</p>
+</div>
+
+<div class="edu-item">
+<p class="edu-title">Technikum Informatyczne</p>
+<p>Dyplom technika</p>
+<p class="edu-year">Ukończone</p>
+</div>
+
+</section>
+
+</aside>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Yaroslav Pinieha 62293 — Junior Frontend Developer</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
