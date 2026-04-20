@@ -1,0 +1,15 @@
+{
+  "skills": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "DOM Manipulation",
+    "Git & GitHub",
+    "SQL (podstawy)"
+  ],
+  "projects": [
+    "Strona wizytówka dla lokalnego przedsiębiorcy",
+    "Kalkulator w JavaScript",
+    "Galeria zdjęć z dynamicznym filtrowaniem"
+  ]
+}

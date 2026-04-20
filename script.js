@@ -83,3 +83,30 @@ form.addEventListener("submit", function(e) {
     form.reset();
   }
 });
+
+fetch("data.json")
+  .then(response => response.json())
+  .then(data => {
+
+    // SKILLS
+    const skillsList = document.querySelector(".skills");
+    skillsList.innerHTML = "";
+
+    data.skills.forEach(skill => {
+      const li = document.createElement("li");
+      li.textContent = skill;
+      skillsList.appendChild(li);
+    });
+
+    // PROJECTS
+    const projectsList = document.querySelector(".projects");
+    projectsList.innerHTML = "";
+
+    data.projects.forEach(project => {
+      const li = document.createElement("li");
+      li.textContent = project;
+      projectsList.appendChild(li);
+    });
+
+  })
+  .catch(error => console.error(error));
