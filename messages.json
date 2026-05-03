@@ -1,0 +1,32 @@
+[
+  {
+    "firstName": "123",
+    "lastName": "12321",
+    "email": "12312",
+    "message": "213"
+  },
+  {
+    "firstName": "123",
+    "lastName": "12321",
+    "email": "12312",
+    "message": "213"
+  },
+  {
+    "firstName": "Yaroslav",
+    "lastName": "Pinieha",
+    "email": "ypinieh1@stu.vistula.edu.pl",
+    "message": "12313"
+  },
+  {
+    "firstName": "Max",
+    "lastName": "golf",
+    "email": "P@gmail.com",
+    "message": "testtt2"
+  },
+  {
+    "firstName": "Vistula",
+    "lastName": "Vistula",
+    "email": "vis@gmail.com",
+    "message": "vistula2026"
+  }
+]

@@ -27,40 +27,44 @@ toggleBtn.addEventListener("click", () => {
 
 const form = document.getElementById("contactForm");
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", async function(e) {
   e.preventDefault();
 
-  // pola
   const firstName = document.getElementById("firstName").value.trim();
   const lastName = document.getElementById("lastName").value.trim();
   const email = document.getElementById("email").value.trim();
   const message = document.getElementById("message").value.trim();
 
-  // bledy
   let isValid = true;
-
-  // reset 
   document.querySelectorAll(".error").forEach(el => el.textContent = "");
 
-  // imie
+  // valid
+
+  // ime
   if (firstName === "") {
     document.getElementById("firstNameError").textContent = "Imię jest wymagane";
     isValid = false;
-  } else if (/\d/.test(firstName)) {
-    document.getElementById("firstNameError").textContent = "Imię nie może zawierać cyfr";
+  } else if (firstName.length < 2) {
+    document.getElementById("firstNameError").textContent = "Za krótkie imię";
+    isValid = false;
+  } else if (!/^[A-Za-zÀ-ÿ]+$/.test(firstName)) {
+    document.getElementById("firstNameError").textContent = "Tylko litery";
     isValid = false;
   }
 
-  // nazwisko
+  // nazwi
   if (lastName === "") {
     document.getElementById("lastNameError").textContent = "Nazwisko jest wymagane";
     isValid = false;
-  } else if (/\d/.test(lastName)) {
-    document.getElementById("lastNameError").textContent = "Nazwisko nie może zawierać cyfr";
+  } else if (lastName.length < 2) {
+    document.getElementById("lastNameError").textContent = "Za krótkie nazwisko";
+    isValid = false;
+  } else if (!/^[A-Za-zÀ-ÿ]+$/.test(lastName)) {
+    document.getElementById("lastNameError").textContent = "Tylko litery";
     isValid = false;
   }
 
-  // email
+  // maio
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (email === "") {
@@ -71,16 +75,45 @@ form.addEventListener("submit", function(e) {
     isValid = false;
   }
 
-  // wiad
+  // sms
   if (message === "") {
     document.getElementById("messageError").textContent = "Wiadomość jest wymagana";
     isValid = false;
   }
 
-  // sukces
-  if (isValid) {
-    alert("Formularz wysłany poprawnie!");
-    form.reset();
+  if (!isValid) return;
+
+  // fth
+  try {
+    const response = await fetch("http://localhost:3000/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        message
+      })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      const successMsg = document.getElementById("formSuccess");
+
+      successMsg.style.display = "block";
+      form.reset();
+
+      setTimeout(() => {
+        successMsg.style.display = "none";
+      }, 3000);
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Błąd połączenia z serwerem");
   }
 });
 
@@ -98,7 +131,7 @@ fetch("data.json")
       skillsList.appendChild(li);
     });
 
-    // proj
+    // proje
     const projectsList = document.querySelector(".projects");
     projectsList.innerHTML = "";
 
@@ -110,46 +143,3 @@ fetch("data.json")
 
   })
   .catch(error => console.error(error));
-
-  //  local stor
-
-const noteInput = document.getElementById("noteInput");
-const addNoteBtn = document.getElementById("addNoteBtn");
-const notesList = document.querySelector(".notes");
-
-let notes = JSON.parse(localStorage.getItem("notes")) || [];
-
-function renderNotes() {
-  notesList.innerHTML = "";
-
-  notes.forEach((note, index) => {
-    const li = document.createElement("li");
-    li.textContent = note;
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "❌";
-    deleteBtn.style.marginLeft = "10px";
-
-    deleteBtn.addEventListener("click", () => {
-      notes.splice(index, 1);
-      localStorage.setItem("notes", JSON.stringify(notes));
-      renderNotes();
-    });
-
-    li.appendChild(deleteBtn);
-    notesList.appendChild(li);
-  });
-}
-
-addNoteBtn.addEventListener("click", () => {
-  const value = noteInput.value.trim();
-
-  if (value !== "") {
-    notes.push(value);
-    localStorage.setItem("notes", JSON.stringify(notes));
-    noteInput.value = "";
-    renderNotes();
-  }
-});
-
-renderNotes();
